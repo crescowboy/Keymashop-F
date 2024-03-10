@@ -2,7 +2,7 @@
     width: 280px;
 }
 .item img{
-    width: 200px;
+    width: 280px;
 }
 .item p{
     margin: 6px 0px;
@@ -32,6 +32,9 @@
         width: 220px;
         font-size: 14px;
     }
+    /* .item p{
+        color: blue;
+    } */
     .item img{
         width: 220px;
     }
@@ -82,4 +85,13 @@
         width: 160px;
     }
    
+}
+
+@media(min-width:2000px){
+    .item{
+        width: 380px;
+    }
+    .item img{
+        width: 380px;
+    }
 }

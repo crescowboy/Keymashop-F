@@ -107,6 +107,11 @@
 }
 
 @media(max-width:800px){
+    .hero{
+        height: 70vh;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
     .hero-left{
         padding-left: 30px;
     }

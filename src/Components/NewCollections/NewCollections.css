@@ -24,10 +24,10 @@
 }
 @media(max-width:1280px){
     
-    .new_collections h1{
+    .new-collections h1{
         font-size: 40px;
     }
-    .new_collections hr{
+    .new-collections hr{
         width: 160px;
         height: 4px;
     }
@@ -39,10 +39,10 @@
 
 @media(max-width:1024px){
     
-    .new_collections h1{
+    .new-collections h1{
         font-size: 30px;
     }
-    .new_collections hr{
+    .new-collections hr{
         width: 120px;
         height: 3px;
     }
@@ -53,13 +53,13 @@
 }
 
 @media(max-width:800px){
-    .new_collections{
+    .new-collections{
         gap: 6px;
     }
-    .new_collections h1{
+    .new-collections h1{
         font-size: 20px;
     }
-    .new_collections hr{
+    .new-collections hr{
         width: 100px;
     }
     .collections{
@@ -68,7 +68,6 @@
 }
 
 @media(max-width:500px){
-    
     .collections{
         display: grid;
         grid-template-columns: 1fr 1fr;

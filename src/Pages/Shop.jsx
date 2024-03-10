@@ -7,7 +7,7 @@ import NewsLetter from '../Components/NewsLetter/NewsLetter'
 
 const Shop = () => {
   return (
-    <div>
+    <div className='shop'>
         <Hero/>
         <Popular/>
         <Offers/>
