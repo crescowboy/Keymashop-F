@@ -78,6 +78,31 @@
     outline: none;
     cursor: pointer;
 }
+
+.container-cart-wsp{
+    display: flex;
+    gap: 10px;
+}
+.btn-wsp {
+    padding: 20px 20px;
+    width: 220px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none; /* Corrección: no => none */
+    color: white;
+    background: #ff4141;
+    margin-bottom: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex; /* Para que el icono y el texto estén en línea */
+    align-items: center; /* Para centrar verticalmente el icono y el texto */
+  }
+  
+ 
+  .btn-wsp svg {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+  }
 .productdisplay-right-category{
     margin-top: 10px;
 }
@@ -131,6 +156,12 @@
         padding: 15px 0px;
         margin-bottom: 20px;
     }
+    .btn-wsp {
+        width: 150px;
+        padding: 10px 10px;
+        margin-bottom: 20px;
+        font-size: 10px;
+    }
     .productdisplay-right-category{
         margin-top: 5px;
         font-size: 14px;
@@ -173,7 +204,13 @@
         width: 120px;
         padding: 10px 0px;
         margin-bottom: 10px;
-        font-size: 14px;
+        font-size: 12px;
+    }
+    .btn-wsp {
+        width: 120px;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        font-size: 8px;    
     }
     .productdisplay-right-category{
         font-size: 12px;
@@ -225,6 +262,12 @@
         width: 100px;
         font-size: 12px;
     }
+    .btn-wsp {
+        width: 100px;
+        padding: 0px 10px;
+        margin-bottom: 10px;
+        font-size: 7px;  
+    }
     .productdisplay-right-category{
         font-size: 10px;
     }
@@ -273,6 +316,12 @@
         font-size: 15px;
         padding: 12px 0px;
     }
+    .btn-wsp {
+        width: 130px;
+        font-size: 9px;
+        padding: 12px 10px;
+    }
+    
     .productdisplay-right-category{
         font-size: 16px;
     }

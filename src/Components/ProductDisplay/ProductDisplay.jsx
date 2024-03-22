@@ -3,9 +3,13 @@ import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png"
 import { ShopContext } from '../../Context/ShopContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const ProductDisplay = (props) => {
   const {product} = props;
   const {addToCart} = useContext(ShopContext);
+  // Construir el mensaje de WhatsApp con el enlace del producto
+  const mensaje = `¡Hola! Estoy interesado en comprar el producto ${product.name}. Aquí está el enlace: http://localhost:3000/product/${product.id}`;
   return (
     <div className='productdisplay'>
       <div className="productdisplay-left">
@@ -48,7 +52,19 @@ const ProductDisplay = (props) => {
             <div>XXL</div>
           </div>
         </div>
+        <div className='container-cart-wsp'>
         <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+        <a className='btn-wsp' href={`https://wa.me/593994084941?text=${encodeURIComponent(mensaje)}`} target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faWhatsapp} />
+        Comprar por WhatsApp
+      </a>
+      </div>
+
+
+
+
+
+
         <p className='productdisplay-right-category'><span>Category :</span>Women , T-Shirt, Crop Top</p>
         <p className='productdisplay-right-category'><span>Tags :</span>Moderns , Latest</p>
       </div>
