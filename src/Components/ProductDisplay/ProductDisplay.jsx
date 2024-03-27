@@ -8,6 +8,11 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const ProductDisplay = (props) => {
   const {product} = props;
   const {addToCart} = useContext(ShopContext);
+
+  if (!product) {
+    return <div>Loading...</div>; // O algún otro indicador de carga
+  }
+
   // Construir el mensaje de WhatsApp con el enlace del producto
   const mensaje = `¡Hola! Estoy interesado en comprar el producto ${product.name}. Aquí está el enlace: http://localhost:3000/product/${product.id}`;
   return (
@@ -38,9 +43,7 @@ const ProductDisplay = (props) => {
           <div className="productdisplay-right-price-new">${product.new_price}</div>
         </div>
         <div className="productdisplay-right-description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, sed atque saepe eligendi,
-          aliquam tempora fugiat laboriosam perspiciatis magnam sit temporibus unde omnis amet aliquid 
-          error ex iusto vitae quidem.
+          <div>{product.description}</div>
         </div>
         <div className="productdisplay-right-size">
           <h1>Select Size</h1>
@@ -65,8 +68,8 @@ const ProductDisplay = (props) => {
 
 
 
-        <p className='productdisplay-right-category'><span>Category :</span>Women , T-Shirt, Crop Top</p>
-        <p className='productdisplay-right-category'><span>Tags :</span>Moderns , Latest</p>
+        <p className='productdisplay-right-category'><span>Category:</span> {product.category} , T-Shirt, Crop Top</p>
+        <p className='productdisplay-right-category'><span>Tags:</span> Moderns , Latest</p>
       </div>
       </div>
   )
