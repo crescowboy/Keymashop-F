@@ -15,12 +15,17 @@
     font-size: 46px;
     font-weight: 700;
 }
+
 .footer-links{
     display: flex;
     list-style: none;
     gap: 50px;
     color: #252525;
     font-size: 20px;
+}
+.footer-links a{
+    text-decoration: none;
+    color: #252525;
 }
 .footer-links li{
     cursor: pointer;
