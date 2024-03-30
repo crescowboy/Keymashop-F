@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png"
@@ -7,10 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const ProductDisplay = (props) => {
   const {product} = props;
+  const [mainImage, setMainImage] = useState(product.image);
   const {addToCart} = useContext(ShopContext);
 
   if (!product) {
     return <div>Loading...</div>; // O algún otro indicador de carga
+  }
+
+  const selectimg = (newImage) =>{
+    setMainImage(newImage);
+    console.log("click")
   }
 
   // Construir el mensaje de WhatsApp con el enlace del producto
@@ -19,10 +25,10 @@ const ProductDisplay = (props) => {
     <div className='productdisplay'>
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
+        <img onClick={() => selectimg(product.image)} src={product.image} alt="" />
+          <img onClick={() => selectimg(product.image2)} src={product.image} alt="" />
+          <img onClick={() => selectimg(product.image3)} src={product.image} alt="" />
+          <img onClick={() => selectimg(product.image4)} src={product.image} alt="" />
         </div>
         <div className="productdisplay-img">
           <img className='productdisplay-main-img' src={product.image} alt="" />

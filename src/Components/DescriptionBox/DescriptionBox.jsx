@@ -15,11 +15,7 @@ const DescriptionBox = () => {
             Nisi, quia quos expedita eveniet saepe sunt delectus ut, inventore sapiente laborum nam quibusdam ab fuga vero blanditiis! Itaque dolor atque similique dolores magnam quam labore tempore nemo distinctio eaque.
             Porro quo libero, ratione at adipisci quae, commodi saepe itaque odio reprehenderit temporibus natus, necessitatibus deleniti consequuntur! Nisi, eos quaerat nostrum alias ea delectus ipsam quibusdam sed. Explicabo, repudiandae nisi?
             </p>
-            <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, laborum repellendus ducimus sed enim inventore architecto quod assumenda, voluptatum veniam placeat ea, aperiam maiores dolorum sequi. Qui quasi fugit inventore.
-            Itaque amet quas corrupti numquam reprehenderit inventore blanditiis ad, vel impedit voluptatum sit fugit pariatur quasi saepe magni excepturi et repellendus nihil provident enim fuga sequi in tenetur suscipit? Ratione.
-            Error culpa quod exercitationem optio similique qui quam at modi natus esse. Velit corrupti nulla ducimus ut natus culpa eaque maiores, cumque ipsam, mollitia sapiente provident earum hic, illo veritatis!  
-            </p>
+            
         </div>
     </div>
   )
