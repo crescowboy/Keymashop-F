@@ -25,13 +25,13 @@ const ProductDisplay = (props) => {
     <div className='productdisplay'>
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-        <img onClick={() => selectimg(product.image)} src={product.image} alt="" />
-          <img onClick={() => selectimg(product.image2)} src={product.image} alt="" />
-          <img onClick={() => selectimg(product.image3)} src={product.image} alt="" />
-          <img onClick={() => selectimg(product.image4)} src={product.image} alt="" />
+        <img onClick={() => selectimg(product.image[1])} src={product.image[1]} alt="" />
+          <img onClick={() => selectimg(product.image[2])} src={product.image[2]} alt="" />
+          <img onClick={() => selectimg(product.image[3])} src={product.image[3]} alt="" />
+          <img onClick={() => selectimg(product.image[4])} src={product.image[4]} alt="" />
         </div>
         <div className="productdisplay-img">
-          <img className='productdisplay-main-img' src={product.image} alt="" />
+          <img className='productdisplay-main-img' src={product.image[0]} alt="" />
         </div>
       </div>
       <div className="productdisplay-right">
