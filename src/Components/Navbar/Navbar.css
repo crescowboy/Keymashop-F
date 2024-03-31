@@ -140,7 +140,7 @@
     .nav-dropdown{
         display: block;
         width: 30px;
-        rotate: -90deg;
+        height: 20px;
         transition: 0.5s;
     }
     .nav-menu{

@@ -5,6 +5,10 @@ import cart_icon from '../Assets/cart_icon.png';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
 import nav_dropdown from '../Assets/dropdown_icon.png';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 
 const Navbar = () => {
 
@@ -21,7 +25,8 @@ const Navbar = () => {
             <img src={logo} alt='' />
             <p>SHOPPER</p>
             </div>
-            <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt={nav_dropdown} />
+            {/* <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt={nav_dropdown} /> */}
+            <FontAwesomeIcon icon={faChevronRight} className='nav-dropdown' onClick={dropdown_toggle}/>
             <ul ref={menuRef} className="nav-menu">
                 <li onClick={()=>{setMenu("shop")}}><Link style={{textDecoration: 'none', color: 'black'}} to='/'>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
                 <li onClick={()=>{setMenu("mens")}}><Link style={{textDecoration: 'none', color: 'black'}} to='/mens'>Men</Link>{menu==="mens"?<hr/>:<></>}</li>
