@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const ProductDisplay = (props) => {
   const {product} = props;
-  const [mainImage, setMainImage] = useState(product.image);
+  const [mainImage, setMainImage] = useState(product.image[0]);
   const {addToCart} = useContext(ShopContext);
 
   if (!product) {
@@ -31,7 +31,7 @@ const ProductDisplay = (props) => {
           <img onClick={() => selectimg(product.image[4])} src={product.image[4]} alt="" />
         </div>
         <div className="productdisplay-img">
-          <img className='productdisplay-main-img' src={product.image[0]} alt="" />
+          <img className='productdisplay-main-img' src={mainImage} alt="" />
         </div>
       </div>
       <div className="productdisplay-right">

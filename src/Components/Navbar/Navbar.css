@@ -1,6 +1,7 @@
 .navbar{
     display: flex;
     justify-content: space-around;
+    color: black;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
     align-items: center;

@@ -5,6 +5,8 @@ import instagram_icon from '../Assets/instagram_icon.png'
 import pintester_icon from '../Assets/pintester_icon.png'
 import whatsapp_icon from '../Assets/whatsapp_icon.png'
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faTiktok, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 
 const Footer = () => {
@@ -23,13 +25,13 @@ const Footer = () => {
         </div>
         <div className="footer-social-icon">
             <div className="footer-icons-container">
-                <img src={instagram_icon} alt="" />
+            <FontAwesomeIcon icon={faInstagram} className='icon'/>
             </div>
             <div className="footer-icons-container">
-                <img src={pintester_icon} alt="" />
+            <FontAwesomeIcon icon={faTiktok} className='icon'/>
             </div>
             <div className="footer-icons-container">
-                <img src={whatsapp_icon} alt="" />
+            <FontAwesomeIcon icon={faWhatsapp} className='icon'/>
             </div>
         </div>
         <div className="footer-copyright">

@@ -35,10 +35,17 @@
     gap: 20px;
 }
 .footer-icons-container{
-    padding: 10px;
-    padding-bottom: 6px;
+    padding: 10px 20px;
+    border-radius: 5px;
     background: #fbfbfb;
     border: 1px solid #ebebeb;
+    cursor: pointer;
+}
+.icon{
+    font-size: 25px;
+}
+.footer-icons-container:hover{
+    transform: scale(1.09);
 }
 .footer-copyright{
     display: flex;
@@ -77,6 +84,9 @@
     }
     .footer-social-icon img{
         width: 22px;
+    }
+    .icon{
+        font-size: 20px;
     }
     .footer-copyright{
         font-size: 13px;
