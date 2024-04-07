@@ -19,20 +19,26 @@ const ProductDisplay = (props) => {
     console.log("click")
   }
 
+  // Condición para verificar si hay imágenes disponibles
+  const hasImages = product.image && product.image.length > 0;
+
   // Construir el mensaje de WhatsApp con el enlace del producto
   const mensaje = `¡Hola! Estoy interesado en comprar el producto ${product.name}. Aquí está el enlace: http://localhost:3000/product/${product.id}`;
   return (
     <div className='productdisplay'>
       <div className="productdisplay-left">
-        <div className="productdisplay-img-list">
-        <img onClick={() => selectimg(product.image[1])} src={product.image[1]} alt="" />
-          <img onClick={() => selectimg(product.image[2])} src={product.image[2]} alt="" />
-          <img onClick={() => selectimg(product.image[3])} src={product.image[3]} alt="" />
-          <img onClick={() => selectimg(product.image[4])} src={product.image[4]} alt="" />
-        </div>
-        <div className="productdisplay-img">
-          <img className='productdisplay-main-img' src={mainImage} alt="" />
-        </div>
+      {hasImages && (
+          <>
+            <div className="productdisplay-img-list">
+              {product.image.map((image, index) => (
+                <img key={index} onClick={() => selectimg(image)} src={image} alt={`Thumbnail ${index}`} />
+              ))}
+            </div>
+            <div className="productdisplay-img">
+              <img className='productdisplay-main-img' src={mainImage} alt="" />
+            </div>
+          </>
+        )}
       </div>
       <div className="productdisplay-right">
         <h1>{product.name}</h1>

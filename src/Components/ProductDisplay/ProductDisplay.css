@@ -13,6 +13,7 @@
 }
 .productdisplay-img-list img{
     height: 163px;
+    cursor: pointer;
 }
 .productdisplay-main-img{
     width: 586px;
@@ -74,6 +75,7 @@
     color: white;
     background: #ff4141;
     margin-bottom: 40px;
+    border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -92,6 +94,7 @@
     color: white;
     background: #ff4141;
     margin-bottom: 40px;
+    border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;

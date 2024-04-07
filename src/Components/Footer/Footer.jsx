@@ -24,15 +24,24 @@ const Footer = () => {
             <Link to={"/"}>Contact</Link>
         </div>
         <div className="footer-social-icon">
-            <div className="footer-icons-container">
-            <FontAwesomeIcon icon={faInstagram} className='icon'/>
-            </div>
-            <div className="footer-icons-container">
-            <FontAwesomeIcon icon={faTiktok} className='icon'/>
-            </div>
-            <div className="footer-icons-container">
-            <FontAwesomeIcon icon={faWhatsapp} className='icon'/>
-            </div>
+            <a href="https://www.linkedin.com/in/wellington-crespo-64262a24b/">
+                <div className="footer-icons-container">
+                <FontAwesomeIcon icon={faInstagram} className='icon'/>
+                </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/wellington-crespo-64262a24b/">
+                <div className="footer-icons-container">
+                <FontAwesomeIcon icon={faTiktok} className='icon'/>
+                </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/wellington-crespo-64262a24b/">
+                <div className="footer-icons-container">
+                <FontAwesomeIcon icon={faWhatsapp} className='icon'/>
+                </div>
+            </a>
+            
         </div>
         <div className="footer-copyright">
             <hr />
