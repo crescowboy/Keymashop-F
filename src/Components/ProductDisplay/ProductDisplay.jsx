@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png"
@@ -7,13 +7,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const ProductDisplay = (props) => {
   const {product} = props;
-  const [mainImage, setMainImage] = useState(product.image[0]);
-  const {addToCart} = useContext(ShopContext);
+  const [mainImage, setMainImage] = useState(null);
 
+  const {addToCart} = useContext(ShopContext);
+  useEffect(() => {
+    if (product && product.image && product.image.length > 0) {
+      setMainImage(product.image[0]);
+    }
+  }, [product]);
   if (!product) {
     return <div>Loading...</div>; // O algún otro indicador de carga
   }
+  
 
+  console.log(product)
+  
   const selectimg = (newImage) =>{
     setMainImage(newImage);
     console.log("click")
