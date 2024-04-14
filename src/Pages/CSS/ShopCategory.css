@@ -1,3 +1,8 @@
+.shop-category{
+    margin-bottom: 100px;
+    min-height: 500px;
+}
+
 .shopcategory-banner{
     display: flex;
     margin: 30px auto;

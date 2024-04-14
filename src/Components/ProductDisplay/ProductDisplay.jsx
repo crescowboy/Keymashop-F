@@ -5,6 +5,10 @@ import star_dull_icon from "../Assets/star_dull_icon.png"
 import { ShopContext } from '../../Context/ShopContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+
 const ProductDisplay = (props) => {
   const {product} = props;
   const [mainImage, setMainImage] = useState(null);
@@ -16,7 +20,9 @@ const ProductDisplay = (props) => {
     }
   }, [product]);
   if (!product) {
-    return <div>Loading...</div>; // O algún otro indicador de carga
+    return  <div className="loading-spinner">
+    <FontAwesomeIcon icon={faSpinner} spin />
+    </div>
   }
   
 
