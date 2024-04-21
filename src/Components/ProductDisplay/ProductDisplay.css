@@ -233,6 +233,7 @@
     }
     .productdisplay-img-list{
         flex-direction: row;
+        height: 330px;
         gap: 6px;
     }
     
@@ -289,6 +290,7 @@
     }
     .productdisplay-img-list{
         flex-direction: column;
+        height: 330px;
         gap: 8px;
     }
     .productdisplay-img-list img{
