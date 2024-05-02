@@ -8,8 +8,9 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+// import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from "axios";
+import PaypalButton from '../PaypalButton/PaypalButton';
 
 
 
@@ -18,33 +19,33 @@ import axios from "axios";
 
 
 const ProductDisplay = (props) => {
-  const [preferenceId, setPreferenceId] = useState(null)
+  // const [preferenceId, setPreferenceId] = useState(null)
 
-  initMercadoPago('YOUR_PUBLIC_KEY', {
-    locale: "es-AR",
-  });
+  // initMercadoPago('YOUR_PUBLIC_KEY', {
+  //   locale: "es-AR",
+  // });
 
-  const createPreference = async () => {
-    try {
-      const response = await axios.post("http://localhost:3000/create_preference",{
-        title: "Bananita contenta",
-        quantity: 1,
-        price: 100,
-      });
+  // const createPreference = async () => {
+  //   try {
+  //     const response = await axios.post("http://localhost:3000/create_preference",{
+  //       title: "Bananita contenta",
+  //       quantity: 1,
+  //       price: 100,
+  //     });
 
-      const { id } = response.data;
-      return id;
-    }catch (error) {
-      console.log(error);
-    }
-  }
+  //     const { id } = response.data;
+  //     return id;
+  //   }catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  const handleBuy = async () => {
-    const id = await createPreference();
-    if (id) {
-      setPreferenceId(id);
-    }
-  }
+  // const handleBuy = async () => {
+  //   const id = await createPreference();
+  //   if (id) {
+  //     setPreferenceId(id);
+  //   }
+  // }
 
 
   const {product} = props;
@@ -120,17 +121,19 @@ const ProductDisplay = (props) => {
         </div>
         <div className='container-cart-wsp'>
         <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
-        <button onClick={handleBuy}>comprar</button>
-        {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />}
+        {/* <button onClick={handleBuy}>comprar</button> */}
+        {/* {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />} */}
         
         
         <a className='btn-wsp' href={`https://wa.me/593994084941?text=${encodeURIComponent(mensaje)}`} target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faWhatsapp} />
         Comprar por WhatsApp
       </a>
+
+      
       </div>
 
-
+      
 
 
 

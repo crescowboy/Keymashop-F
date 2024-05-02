@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext'
 import remove_icon from '../Assets/cart_cross_icon.png';
+import PaypalButton from '../PaypalButton/PaypalButton';
     
 const CartItems = () => {
     const {getTotalCartAmount,all_product,cartItems,removeFromCart} = useContext(ShopContext);
@@ -54,6 +55,7 @@ const CartItems = () => {
                 </div>
             </div>
             <button>PROCEED TO CHECKOUT</button>
+            <PaypalButton totalValue="20.00" invoice="Order12345" />
         </div>
         <div className="cartitems-promocode">
             <p>If you have a promo code, Enter it here</p>
