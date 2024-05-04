@@ -23,7 +23,7 @@ const CartItems = () => {
             {
                 return <div>
                 <div className="cartitems-format cartitems-format-main">
-                    <img src={e.image} alt="" className='carticon-product-icon' />
+                    <img src={e.image[0]} alt="" className='carticon-product-icon' />
                     <p>{e.name}</p>
                     <p>${e.new_price}</p>
                     <button className='cartitems-quantity'>{cartItems[e.id]}</button>
@@ -49,13 +49,13 @@ const CartItems = () => {
                     <p>Free</p>
                 </div>
                 <hr />
-                <div className="cartitems-total-item">
+                {/* <div className="cartitems-total-item">
                     <h3>Total</h3>
-                    <h3>${getTotalCartAmount()}</h3>
-                </div>
+                    <h3>{getTotalCartAmount()}</h3>
+                </div> */}
             </div>
-            <button>PROCEED TO CHECKOUT</button>
-            <PaypalButton totalValue="20.00" invoice="Order12345" />
+            {/* <button>PROCEED TO CHECKOUT</button> */}
+            <PaypalButton totalValue={getTotalCartAmount()} invoice="Order12345" />
         </div>
         <div className="cartitems-promocode">
             <p>If you have a promo code, Enter it here</p>
