@@ -112,7 +112,7 @@ const ProductDisplay = (props) => {
         <div className="productdisplay-right-size">
           <h1>Select Size</h1>
           <div className="productdisplay-right-sizes">
-            <div>S</div>
+            <div>{product.size[0]}</div>
             <div>M</div>
             <div>L</div>
             <div>XL</div>
