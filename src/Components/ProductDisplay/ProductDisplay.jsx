@@ -19,33 +19,7 @@ import PaypalButton from '../PaypalButton/PaypalButton';
 
 
 const ProductDisplay = (props) => {
-  // const [preferenceId, setPreferenceId] = useState(null)
-
-  // initMercadoPago('YOUR_PUBLIC_KEY', {
-  //   locale: "es-AR",
-  // });
-
-  // const createPreference = async () => {
-  //   try {
-  //     const response = await axios.post("http://localhost:3000/create_preference",{
-  //       title: "Bananita contenta",
-  //       quantity: 1,
-  //       price: 100,
-  //     });
-
-  //     const { id } = response.data;
-  //     return id;
-  //   }catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // const handleBuy = async () => {
-  //   const id = await createPreference();
-  //   if (id) {
-  //     setPreferenceId(id);
-  //   }
-  // }
+  const [selectedSize, setSelectedSize] = useState();
 
 
   const {product} = props;
@@ -63,6 +37,10 @@ const ProductDisplay = (props) => {
     </div>
   }
   
+  // funcion para seleccionar size
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
 
   console.log(product)
   
@@ -112,11 +90,16 @@ const ProductDisplay = (props) => {
         <div className="productdisplay-right-size">
           <h1>Select Size</h1>
           <div className="productdisplay-right-sizes">
-            <div>{product.size[0]}</div>
-            <div>M</div>
-            <div>L</div>
-            <div>XL</div>
-            <div>XXL</div>
+            {product.size.map((size, index)=> (
+              <div
+              key={index}
+              className={`size ${selectedSize === size ? 'selected' : ''}`}
+              onClick={() => handleSizeClick(size)}
+            >
+              {size}
+              {console.log(`size: ${selectedSize} `)}
+            </div>
+            ))}
           </div>
         </div>
         <div className='container-cart-wsp'>
