@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+import GoogleLogin from 'react-google-login'
+import GoogleLoginButton from '../Components/GoogleLoginButton/GoogleLoginButton'
 
 const LoginSignup = () => {
 
@@ -72,7 +74,9 @@ const LoginSignup = () => {
         <div className="loginsignup-agree">
           <input type="checkbox" name='' id=''/>
           <p>By continuing, i agree to the terms of use & privacy policy.</p>
+          
         </div>
+        <GoogleLoginButton></GoogleLoginButton>
       </div>
     </div>
   )
