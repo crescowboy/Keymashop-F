@@ -3,9 +3,17 @@ import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext'
 import remove_icon from '../Assets/cart_cross_icon.png';
 import PaypalButton from '../PaypalButton/PaypalButton';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     
 const CartItems = () => {
     const {getTotalCartAmount,all_product,cartItems,removeFromCart} = useContext(ShopContext);
+
+    if (all_product.length === 0) {
+        return  <div className="loading-spinner">
+    <FontAwesomeIcon icon={faSpinner} spin />
+    </div>
+    }
     
   return (
     <div className='cartitems'>

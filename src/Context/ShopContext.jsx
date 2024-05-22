@@ -15,12 +15,12 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_product] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
-    useEffect(() => {
+    useEffect(()=>{
         fetch('http://localhost:4000/allproducts')
-            .then((response) => response.json())
-            .then((data) => setAll_product(data))
-            .catch(error => console.error('Error fetching all products:', error));
-
+        .then((response) => response.json())
+        .then((data) => setAll_product(data))
+        .catch((error) => console.error('Error fetching all products:', error));
+    
         if (localStorage.getItem('auth-token')) {
             fetch('http://localhost:4000/getcart', {
                 method: 'POST',
@@ -31,16 +31,12 @@ const ShopContextProvider = (props) => {
                 },
                 body: "",
             })
-                .then((response) => {
-                    if (!response.ok) {
-                        return response.text().then(text => { throw new Error(text) });
-                    }
-                    return response.json();
-                })
-                .then((data) => setCartItems(data))
-                .catch(error => console.error('Error fetching cart items:', error));
+            .then((response) => response.json())
+            .then((data) => setCartItems(data))
+            .catch((error) => console.error('Error fetching cart items:', error));
         }
     }, []);
+    
 
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -94,11 +90,16 @@ const ShopContextProvider = (props) => {
             if (cartItems[item] > 0) {
                 console.log(cartItems[item]);
                 let itemInfo = all_product.find((product) => product.id === Number(item));
-                totalAmount += itemInfo.new_price * cartItems[item];
+                if (itemInfo) { // Check if itemInfo is not undefined
+                    totalAmount += itemInfo.new_price * cartItems[item];
+                } else {
+                    console.error(`Product with id ${item} not found in all_product`);
+                }
             }
         }
-        return totalAmount; // Mover el return fuera del bucle
+        return totalAmount;
     }
+    
 
     const getTotalCartItems = () => {
         let totalItem = 0;
