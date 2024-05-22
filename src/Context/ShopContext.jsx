@@ -38,28 +38,30 @@ const ShopContextProvider = (props) => {
     }, []);
     
 
-    const addToCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    const addToCart = async (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
+    
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:4000/addtocart', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/form-data',
-                    'auth-token': `${localStorage.getItem('auth-token')}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ "itemId": itemId }),
-            })
-                .then((response) => {
-                    if (!response.ok) {
-                        return response.text().then(text => { throw new Error(text) });
-                    }
-                    return response.json();
-                })
-                .then((data) => console.log(data))
-                .catch(error => console.error('Error adding to cart:', error));
+            try {
+                const response = await fetch('http://localhost:4000/addtocart', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'auth-token': `${localStorage.getItem('auth-token')}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ itemId: itemId }),
+                });
+                const data = await response.json();
+    
+                // Actualiza el estado del carrito con la respuesta del backend
+                setCartItems(data.cartData);
+            } catch (error) {
+                console.error('Error adding item to cart:', error);
+            }
         }
-    }
+    };
+    
 
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
