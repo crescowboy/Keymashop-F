@@ -46,7 +46,7 @@
 .nav-login-cart{
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 25px;
 }
 
 .nav-login-cart button{
@@ -72,7 +72,7 @@
     justify-content: center;
     align-items: center;
     margin-top: -35px;
-    margin-left: -55px;
+    margin-left: -35px;
     border-radius: 11px;
     font-size: 14px;
     background-color: red;
@@ -83,11 +83,17 @@
 }
 
 .nav-profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 20px;
+}
+
+.nav-user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
