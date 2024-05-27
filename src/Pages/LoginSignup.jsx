@@ -32,14 +32,17 @@ const LoginSignup = () => {
       },
       body: JSON.stringify(formData),
     }).then((response) => response.json()).then((data) => responseData = data);
-
+  
     if (responseData.success) {
       localStorage.setItem('auth-token', responseData.token);
+      localStorage.setItem('user', JSON.stringify({ email: formData.email }));  // Guardar solo el email u otra información relevante
       window.location.replace("/");
     } else {
       alert(responseData.errors);
     }
   };
+  
+  
 
   const signUp = async () => {
     console.log("SignUp Function Executed", formData);
