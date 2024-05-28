@@ -9,8 +9,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 // import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
-import axios from "axios";
-import PaypalButton from '../PaypalButton/PaypalButton';
+
 
 
 
@@ -103,7 +102,10 @@ const ProductDisplay = (props) => {
           </div>
         </div>
         <div className='container-cart-wsp'>
-        <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+        <button onClick={selectedSize ? () => addToCart(product.id) : () => alert("Seleccione una talla")}>
+         ADD TO CART
+        </button>
+
         {/* <button onClick={handleBuy}>comprar</button> */}
         {/* {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />} */}
         
