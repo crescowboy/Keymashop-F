@@ -18,7 +18,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 const ProductDisplay = (props) => {
-  const [selectedSize, setSelectedSize] = useState();
+  const {selectedSize, setSelectedSize} = useContext(ShopContext);
 
 
   const {product} = props;
@@ -38,7 +38,7 @@ const ProductDisplay = (props) => {
   
   // funcion para seleccionar size
   const handleSizeClick = (size) => {
-    setSelectedSize(size);
+    setSelectedSize((prev) => ({ ...prev, [product.id]: size }));
   };
 
   console.log(product)
@@ -102,9 +102,15 @@ const ProductDisplay = (props) => {
           </div>
         </div>
         <div className='container-cart-wsp'>
-        <button onClick={selectedSize ? () => addToCart(product.id) : () => alert("Seleccione una talla")}>
-         ADD TO CART
-        </button>
+        <button onClick={() => {
+            if (selectedSize[product.id]) {
+              addToCart(product.id, selectedSize[product.id]);
+            } else {
+              alert("Seleccione una talla");
+            }
+          }}>
+            ADD TO CART
+          </button>
 
         {/* <button onClick={handleBuy}>comprar</button> */}
         {/* {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />} */}

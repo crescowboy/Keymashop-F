@@ -14,6 +14,7 @@ const getDefaultCart = () => {
 const ShopContextProvider = (props) => {
     const [all_product, setAll_product] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [selectedSize, setSelectedSize] = useState({});
 
     useEffect(()=>{
         fetch('http://localhost:4000/allproducts')
@@ -38,8 +39,11 @@ const ShopContextProvider = (props) => {
     }, []);
     
 
-    const addToCart = async (itemId) => {
+    const addToCart = async (itemId,size) => {
         setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
+
+        // Save selected size to state
+        setSelectedSize((prev) => ({ ...prev, [itemId]: size }));
     
         if (localStorage.getItem('auth-token')) {
             try {
@@ -113,7 +117,7 @@ const ShopContextProvider = (props) => {
         return totalItem;
     }
 
-    const contextValue = { getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart };
+    const contextValue = { getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart,selectedSize, setSelectedSize };
     return (
         <ShopContext.Provider value={contextValue}>
             {props.children}

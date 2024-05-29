@@ -7,7 +7,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     
 const CartItems = () => {
-    const {getTotalCartAmount,all_product,cartItems,removeFromCart} = useContext(ShopContext);
+    const {getTotalCartAmount,all_product,cartItems,removeFromCart,selectedSize, setSelectedSize} = useContext(ShopContext);
 
     if (all_product.length === 0) {
         return  <div className="loading-spinner">
@@ -35,7 +35,7 @@ const CartItems = () => {
                     <img src={e.image[0]} alt="" className='carticon-product-icon' />
                     <p>{e.name}</p>
                     <p>${e.new_price}</p>
-                    <p>{e.size}</p>
+                    <p>{selectedSize[e.id]}</p>
                     <button className='cartitems-quantity'>{cartItems[e.id]}</button>
                     <p>${e.new_price*cartItems[e.id]}</p>
                     <img className='cartitems-remove-icon' src={remove_icon} onClick={()=>{removeFromCart(e.id)}} alt="" />
