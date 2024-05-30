@@ -19,6 +19,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const ProductDisplay = (props) => {
   const {selectedSize, setSelectedSize} = useContext(ShopContext);
+  const [sSize, setsSize] = useState();
 
 
   const {product} = props;
@@ -39,6 +40,7 @@ const ProductDisplay = (props) => {
   // funcion para seleccionar size
   const handleSizeClick = (size) => {
     setSelectedSize((prev) => ({ ...prev, [product.id]: size }));
+    setsSize(size)
   };
 
   console.log(product)
@@ -92,7 +94,7 @@ const ProductDisplay = (props) => {
             {product.size.map((size, index)=> (
               <div
               key={index}
-              className={`size ${selectedSize === size ? 'selected' : ''}`}
+              className={`size ${sSize === size ? 'selected' : ''}`}
               onClick={() => handleSizeClick(size)}
             >
               {size}
