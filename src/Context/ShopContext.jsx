@@ -39,11 +39,13 @@ const ShopContextProvider = (props) => {
     }, []);
     
 
-    const addToCart = async (itemId,size) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
-
+    const addToCart = async (itemId, size) => {
+        const cartKey = `${itemId}-${size}`;
+    
+        setCartItems((prev) => ({ ...prev, [cartKey]: (prev[cartKey] || 0) + 1 }));
+    
         // Save selected size to state
-        setSelectedSize((prev) => ({ ...prev, [itemId]: size }));
+        setSelectedSize((prev) => ({ ...prev, [cartKey]: size }));
     
         if (localStorage.getItem('auth-token')) {
             try {
@@ -54,7 +56,7 @@ const ShopContextProvider = (props) => {
                         'auth-token': `${localStorage.getItem('auth-token')}`,
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ itemId: itemId }),
+                    body: JSON.stringify({ itemId: cartKey }), // Use the combined key
                 });
                 const data = await response.json();
     
@@ -65,6 +67,7 @@ const ShopContextProvider = (props) => {
             }
         }
     };
+    
     
 
     const removeFromCart = (itemId) => {
