@@ -65,7 +65,7 @@ const CartItems = () => {
                         </div>
                         <hr />
                     </div>
-                    <PaypalButton totalValue={getTotalCartAmount()} invoice="Order12345" />
+                    <PaypalButton key={getTotalCartAmount()} totalValue={getTotalCartAmount()} invoice="Order12345" />
                 </div>
                 <div className="cartitems-promocode">
                     <p>If you have a promo code, enter it here</p>
