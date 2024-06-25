@@ -12,12 +12,12 @@
     gap: 16px;
 }
 .productdisplay-img-list img{
-    height: 163px;
+    height: 138px;
     cursor: pointer;
 }
 .productdisplay-main-img{
     width: 586px;
-    height: 700px;
+    height: 600px;
 }
 .productdisplay-right{
    margin: 0px 70px;
