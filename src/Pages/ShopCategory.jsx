@@ -18,6 +18,7 @@ const ShopCategory = (props) => {
     }
   }, [all_product, props.category]);
   
+  const productsInCategory = all_product.filter(item => props.category === item.category);
   const productsToShow = all_product.filter(item => props.category === item.category).slice(0, visibleProducts);
   const totalProductsInCategory = all_product.filter(item => props.category === item.category).length;
 
@@ -27,6 +28,8 @@ const ShopCategory = (props) => {
   
     setVisibleProducts(prevVisibleProducts => prevVisibleProducts + productsToAdd); // Añade la cantidad calculada de productos
   };
+
+  
 
   return (
     <div className='shop-category' style={{ minHeight: containerHeight }}>
@@ -40,11 +43,13 @@ const ShopCategory = (props) => {
         </div>
       </div>
       <div id="shopcategory-products" className="shopcategory-products">
-        {all_product ? (
+      {productsInCategory.length > 0 ? (
           productsToShow.map((item, i) => (
             <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
           ))
-          ):( <div className="loading-spinner">No hay productos disponibles...</div>
+        ) : (
+          <div className="msgContainer"> <div className='msgContainer-msg'>No hay productos disponibles...</div>
+          </div>
         )}
         
       </div>
