@@ -32,6 +32,7 @@ const PaypalButton = ({ totalValue, invoice }) => {
         onApprove={(data, actions) => {
           return actions.order.capture().then((details) => {
             console.log('Transacción completada por ', details.payer.name.given_name);
+            console.log('Dirección de envío: ', details.purchase_units[0].shipping.address);
           });
         }}
         onError={(err) => {

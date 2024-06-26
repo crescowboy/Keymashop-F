@@ -57,8 +57,8 @@ const ShopCategory = (props) => {
         <p>
           <span>Showing 1-{totalProductsInCategory < 22 ? totalProductsInCategory : visibleProducts}</span> out of {totalProductsInCategory} products
         </p>
-        <div className='shopcategory-sort'>
-          <select name="priceFilter" id="priceFilter" onChange={handleFilterChange}>
+        <div>
+          <select className='shopcategory-sort' name="priceFilter" id="priceFilter" onChange={handleFilterChange}>
             <option value="default">Sort by</option>
             <option value="10-20">10 - 20 $</option>
             <option value="20-30">20 - 30 $</option>

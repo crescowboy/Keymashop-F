@@ -5,6 +5,7 @@ import remove_icon from '../Assets/cart_cross_icon.png';
 import PaypalButton from '../PaypalButton/PaypalButton';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const CartItems = () => {
     const { getTotalCartAmount, all_product, cartItems, removeFromCart, selectedSize } = useContext(ShopContext);
@@ -65,7 +66,9 @@ const CartItems = () => {
                         </div>
                         <hr />
                     </div>
+                    <PayPalScriptProvider options={{"clientId": "AUW9wsE1p12rmR29MG93bDsDksYASnsb37kbQ9yxrP5AIkHmeLFamBliXTg9ETaGeRo2Twc0HcfTv9Mt"}}>
                     <PaypalButton key={getTotalCartAmount()} totalValue={getTotalCartAmount()} invoice="Order12345" />
+                    </PayPalScriptProvider>
                 </div>
                 <div className="cartitems-promocode">
                     <p>If you have a promo code, enter it here</p>
