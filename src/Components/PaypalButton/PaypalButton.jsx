@@ -1,5 +1,6 @@
 import React from 'react';
 import { PayPalButtons } from '@paypal/react-paypal-js';
+import Swal from 'sweetalert2';
 
 const PaypalButton = ({ totalValue, invoice }) => {
   const isTotalValid = totalValue > 0; // Validar si el total es mayor que cero
@@ -12,6 +13,15 @@ const PaypalButton = ({ totalValue, invoice }) => {
       </div>
     );
   }
+
+  const handlePaymentSuccess = (details) => {
+    Swal.fire({
+      title: '¡Pago exitoso!',
+      text: `Transacción completada por ${details.payer.name.given_name}`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+  };
 
   return (
     <div>
@@ -30,13 +40,21 @@ const PaypalButton = ({ totalValue, invoice }) => {
           });
         }}
         onApprove={(data, actions) => {
-          return actions.order.capture().then((details) => {
+          return actions.order.capture().then((handlePaymentSuccess),(details) => {
             console.log('Transacción completada por ', details.payer.name.given_name);
             console.log('Dirección de envío: ', details.purchase_units[0].shipping.address);
+            
+
           });
         }}
         onError={(err) => {
           console.error('Error con PayPal:', err);
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un problema con el pago. Inténtalo de nuevo.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
         }}
       />
     </div>
