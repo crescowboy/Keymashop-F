@@ -66,9 +66,9 @@ const CartItems = () => {
                         </div>
                         <hr />
                     </div>
-                    <PayPalScriptProvider options={{"clientId": "AUW9wsE1p12rmR29MG93bDsDksYASnsb37kbQ9yxrP5AIkHmeLFamBliXTg9ETaGeRo2Twc0HcfTv9Mt"}}>
+                    
                     <PaypalButton key={getTotalCartAmount()} totalValue={getTotalCartAmount()} invoice="Order12345" />
-                    </PayPalScriptProvider>
+                    
                 </div>
                 <div className="cartitems-promocode">
                     <p>If you have a promo code, enter it here</p>
