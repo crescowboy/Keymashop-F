@@ -1,5 +1,5 @@
 import React from 'react';
-import { PayPalButtons } from '@paypal/react-paypal-js';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import Swal from 'sweetalert2';
 
 const PaypalButton = ({ totalValue, invoice }) => {
@@ -24,40 +24,41 @@ const PaypalButton = ({ totalValue, invoice }) => {
   };
 
   return (
-    <div>
-      <h3>Total: ${totalValue}</h3>
-      <PayPalButtons
-        createOrder={(data, actions) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: invoice,
-                amount: {
-                  value: totalValue.toFixed(2), // Asegúrate de que tenga dos decimales
+    <PayPalScriptProvider options={{ "client-id": "AUW9wsE1p12rmR29MG93bDsDksYASnsb37kbQ9yxrP5AIkHmeLFamBliXTg9ETaGeRo2Twc0HcfTv9Mt", currency: "USD", locale: "es_ES" }}>
+      <div>
+        <h3>Total: ${totalValue}</h3>
+        <PayPalButtons
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: invoice,
+                  amount: {
+                    value: totalValue.toFixed(2), // Asegúrate de que tenga dos decimales
+                  },
                 },
-              },
-            ],
-          });
-        }}
-        onApprove={(data, actions) => {
-          return actions.order.capture().then((handlePaymentSuccess),(details) => {
-            console.log('Transacción completada por ', details.payer.name.given_name);
-            console.log('Dirección de envío: ', details.purchase_units[0].shipping.address);
-            
-
-          });
-        }}
-        onError={(err) => {
-          console.error('Error con PayPal:', err);
-          Swal.fire({
-            title: 'Error',
-            text: 'Hubo un problema con el pago. Inténtalo de nuevo.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-          });
-        }}
-      />
-    </div>
+              ],
+            });
+          }}
+          onApprove={(data, actions) => {
+            return actions.order.capture().then((details) => {
+              handlePaymentSuccess(details);
+              console.log('Transacción completada por ', details.payer.name.given_name);
+              console.log('Dirección de envío: ', details.purchase_units[0].shipping.address);
+            });
+          }}
+          onError={(err) => {
+            console.error('Error con PayPal:', err);
+            Swal.fire({
+              title: 'Error',
+              text: 'Hubo un problema con el pago. Inténtalo de nuevo.',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+          }}
+        />
+      </div>
+    </PayPalScriptProvider>
   );
 };
 
